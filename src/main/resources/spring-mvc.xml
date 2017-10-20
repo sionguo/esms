@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+	<!-- 配置组件扫描 -->
+	<context:component-scan base-package="cn.guoxy.esms" />
+	<!-- 配置MVC注解扫描 -->
+	<mvc:annotation-driven />
+	<!-- 配置视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!-- 读db.properties文件 -->
+	<util:properties id="db" location="classpath:db.properties" />
+	<!-- 配置数据库连接池 -->
+	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="#{db.driver}" />
+		<property name="url" value="#{db.url}" />
+		<property name="username" value="#{db.user}" />
+		<property name="password" value="#{db.pwd}" />
+	</bean>
+
+	<!-- 配置用于session验证的拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/bs/**" />
+			<mvc:exclude-mapping path="/bs/bslogin.do" />
+			<mvc:exclude-mapping path="/bs/tobslogin.do" />
+			<bean class="cn.guoxy.esms.commons.interceptors.SessionInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/*.do" />
+			<mvc:exclude-mapping path="/tologin.do" />
+			<mvc:exclude-mapping path="/login.do" />
+			<mvc:exclude-mapping path="/toindex.do" />
+			<mvc:exclude-mapping path="/toregist.do" />
+			<mvc:exclude-mapping path="/ckUserName.do" />
+			<mvc:exclude-mapping path="/regist.do" />
+			<mvc:exclude-mapping path="/code.do" />
+			<mvc:exclude-mapping path="/ckcode.do" />
+			<mvc:exclude-mapping path="/getNewGoods.do" />
+			<mvc:exclude-mapping path="/details.do" />
+			<mvc:exclude-mapping path="/getHotGoods.do" />
+			<mvc:exclude-mapping path="/search.do" />
+			<mvc:exclude-mapping path="/ckEmail.do" />
+			<mvc:exclude-mapping path="/ckkEmail.do" />
+			<mvc:exclude-mapping path="/toFind.do" />
+			<mvc:exclude-mapping path="/getyzm.do" />
+			<mvc:exclude-mapping path="/updatePwd.do" />
+			<bean class="cn.guoxy.esms.commons.interceptors.FsSessionInterceptor"></bean>
+		</mvc:interceptor>
+
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="cn.guoxy.esms.commons.interceptors.LoggerInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="104857600" />
+		<property name="maxInMemorySize" value="4096" />
+		<property name="defaultEncoding" value="UTF-8"></property>
+	</bean>
+
+
+	<!-- 配置启动后加载 ，初始化我的资源 -->
+	<bean class="cn.guoxy.esms.commons.resources.EsmsResource"></bean>
+</beans>
+
+
+
+
+
+
+
+
+

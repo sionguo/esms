@@ -1,0 +1,91 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.head,
+.body,
+.bottom {
+	width: 1200px;
+	height: 20px;
+	margin: 0 auto;
+}
+
+.head {
+	margin-top: 20px;
+	border-bottom: 1px solid #000000;
+	height: 60px !important
+}
+
+.head p {
+	margin-top: 10px;
+	float: right;
+	font-size: 12px;
+	text-decoration: none;
+	padding-right: 20px;
+}
+
+.bo {
+	width: 500px;
+	height: 200px;
+	margin: 0 auto;
+	/*水平居中*/
+	position: relative;
+	top: 50%;
+	/*偏移*/
+	transform: translateY(-50%);
+}
+
+.oo {
+	width: 20px;
+	height: 20px;
+	float: left;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 50px;
+}
+
+.ss {
+	float: left;
+	height: 20px;
+	box-sizing: border-box;
+	font-size: 18px;
+	margin-right: 50px;
+	line-height: 20px;
+}
+
+input {
+	display: block;
+	width: 360px;
+	height: 45px;
+	margin: 0 auto;
+	outline: 0;
+	border: 1px solid #727171;
+	box-sizing: border-box;
+	margin-top: 20px;
+}
+
+.submit {
+	background-color: #B42025;
+	color: white;
+	font-size: 20px;
+}
+.hidden{
+	display: none;
+}
+.green{
+	background: green;
+}
+.error{
+	border: 2px solid red;
+}

@@ -1,0 +1,83 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style: none;
+}
+
+.head, .body, .bottom {
+	width: 1200px;
+	height: 20px;
+	margin: 0 auto;
+}
+
+.head {
+	margin-top: 20px;
+	border-bottom: 1px solid #000000;
+	height: 60px !important
+}
+
+.head p {
+	margin-top: 10px;
+	float: right;
+	font-size: 12px;
+	text-decoration: none;
+	padding-right: 20px;
+}
+
+.body {
+	margin-top: 50px;
+}
+
+.body .login {
+	float: right;
+	width: 400px;
+	height: 300px;
+	margin-top: 20px;
+	margin-right: 100px;
+	border: 1px solid #808080;
+}
+
+.body .login input {
+	display: block;
+	width: 360px;
+	height: 45px;
+	margin: 0 auto;
+	outline: 0;
+	border: 1px solid #727171;
+	box-sizing: border-box;
+	margin-top: 20px;
+}
+
+.body .login .tips {
+	width: 220px;
+	height: 18px;
+	font-size: 12px;
+	margin: 0 auto;
+	color: #A10000;
+	margin-top: 3px;
+}
+
+#btn {
+	background-color: #B42025;
+	color: white;
+	font-size: 20px;
+}
+
+.login .find {
+	width: 360px;
+	margin: 0 auto;
+	text-align: right;
+	font-size: 14px;
+	color: #b42025;
+	font-weight: 900;
+}
+
+.body .show {
+	margin-left: 48px;
+}
+
+.display {
+	border: 1px solid #A10000;
+	background-color: #FFF6F7;
+}

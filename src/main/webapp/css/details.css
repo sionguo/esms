@@ -1,0 +1,103 @@
+.main {
+	width: 1200px;
+	height: 500px;
+	margin: 0 auto;
+	border-bottom: 1px solid #727171;
+}
+
+.top_name {
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #727171;
+	float: left;
+	border-bottom: 1px solid #727171;
+}
+
+.top_name h2 {
+	margin-left: 10px;
+	float: left;
+	margin-right: 10px;
+	line-height: 45px;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: "Microsoft YaHei";
+}
+
+.left_img {
+	width: 600px;
+	height: 450px;
+	float: left;
+}
+
+.left_img img {
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
+	margin-top: 25px;
+	display: block;
+}
+
+.right_info {
+	width: 600px;
+	height: 500px;
+	float: left;
+}
+
+.right_info .infoo {
+	width: 400px;
+	height: 400px;
+	margin-top: 25px;
+	margin-left: 50px;
+	color: #a10000;
+	float: left;
+	color: #a10000;
+}
+
+.right_info .infoo .num {
+	width: 400px;
+	float: left;
+	height: 200px;
+}
+
+.right_info .infoo h3 {
+	color: #a10000;
+	line-height: 40px;
+	font-size: 20px;
+	float: left;
+}
+
+.right_info .infoo .btn_ny {
+	width: 360px;
+	height: 50px;
+	float: left;
+	margin: 0 auto;
+}
+
+.right_info .infoo .btn_ny .bt {
+	width: 160px;
+	height: 50px;
+	display: block;
+	float: left;
+	font-size: 30px;
+	line-height: 50px;
+	text-align: center;
+	margin-right: 10px;
+	color: #A10000;
+	border: 1px solid red;
+	margin-right: 10px;
+	background-color: #F7ABAF;
+}
+
+select {
+	border: solid 1px #000;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	padding-right: 14px;
+	width: 240px;
+	height: 34px;
+	overflow: hidden;
+	background: url(http://localhost:8080/esms/img/123546.jpg) no-repeat
+		right #fff;
+}

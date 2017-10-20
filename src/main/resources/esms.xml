@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<resource>
+		<path id="imgPath">c:/image</path>
+	</resource>
+	<resource>
+		<path id="logPath">C:/Log/JDKLog</path>
+	</resource>
+</resources>
