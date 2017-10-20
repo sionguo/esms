@@ -21,7 +21,11 @@ import cn.guoxy.esms.fs.entity.OrderForm;
 import cn.guoxy.esms.fs.entity.ReturnType;
 import cn.guoxy.esms.fs.entity.User;
 import cn.guoxy.esms.fs.service.BuyGoodsService;
-
+/**
+ * 购买相关请求处理
+ * @author gxy
+ *
+ */
 @Controller
 public class BuyController {
 	@Resource(name = "buyGoodsService")
