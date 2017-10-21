@@ -16,6 +16,12 @@ import cn.guoxy.esms.fs.entity.User;
 import cn.guoxy.esms.fs.service.EmailService;
 import cn.guoxy.esms.fs.service.RegistService;
 
+/**
+ * 注册处理
+ * 
+ * @author gxy
+ *
+ */
 @Controller
 public class RegistController {
 	@Resource(name = "registService")
@@ -23,11 +29,22 @@ public class RegistController {
 	@Resource(name = "emailService")
 	public EmailService emailService;
 
+	/**
+	 * 转发到注册页面
+	 * 
+	 * @return
+	 */
 	@RequestMapping("/toregist.do")
 	public String toRegist() {
 		return "regist";
 	}
 
+	/**
+	 * 检查用户名是否重复
+	 * 
+	 * @param request
+	 * @param response
+	 */
 	@RequestMapping("/ckUserName.do")
 	public void ckUserName(HttpServletRequest request, HttpServletResponse response) {
 		String userName = request.getParameter("userName");
@@ -45,6 +62,13 @@ public class RegistController {
 		}
 	}
 
+	/**
+	 * 检查邮箱
+	 * 
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("ckEmail.do")
 	@ResponseBody
 	public ReturnType ckEmail(HttpServletRequest request) throws Exception {
@@ -61,6 +85,13 @@ public class RegistController {
 		}
 	}
 
+	/**
+	 * 检查邮箱是否真实存在
+	 * 
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("ckkEmail.do")
 	public String ckkEmail(HttpServletRequest request) throws Exception {
 		String uid = request.getParameter("uid");
@@ -76,6 +107,12 @@ public class RegistController {
 
 	}
 
+	/**
+	 * 注册处理，将用户信息存到数据库
+	 * 
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/regist.do")
 	public String regist(HttpServletRequest request) {
 		String userName = request.getParameter("userName");

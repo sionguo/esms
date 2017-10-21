@@ -21,8 +21,10 @@ import cn.guoxy.esms.fs.entity.OrderForm;
 import cn.guoxy.esms.fs.entity.ReturnType;
 import cn.guoxy.esms.fs.entity.User;
 import cn.guoxy.esms.fs.service.BuyGoodsService;
+
 /**
  * 购买相关请求处理
+ * 
  * @author gxy
  *
  */
@@ -35,6 +37,15 @@ public class BuyController {
 	@Resource(name = "userDAO")
 	private UserDAO dao;
 
+	/**
+	 * 处理放入购物车的请求
+	 * 
+	 * @param request
+	 *            请求对象
+	 * @param session
+	 *            取出绑定的用户
+	 * @return 自定义返回类型
+	 */
 	@RequestMapping("putingwc.do")
 	@ResponseBody
 	public ReturnType putInGwc(HttpServletRequest request, HttpSession session) {
@@ -52,6 +63,11 @@ public class BuyController {
 		return new ReturnType(0, "加入购物车成功");
 	}
 
+	/**
+	 * 直接购买处理，即放入订单
+	 * 
+	 * @return 自定义返回类型
+	 */
 	@RequestMapping("putinorder.do")
 	@ResponseBody
 	public ReturnType putInOrderForm(HttpServletRequest request, HttpSession session) {
@@ -75,6 +91,11 @@ public class BuyController {
 		return new ReturnType(0, "购买成功");
 	}
 
+	/**
+	 * 从购物车购买
+	 * 
+	 * @return 自定义返回类型
+	 */
 	@RequestMapping("putinorder1.do")
 	@ResponseBody
 	public ReturnType putInOrderForm1(HttpServletRequest request, HttpSession session) {
@@ -100,11 +121,22 @@ public class BuyController {
 		return new ReturnType(0, "购买成功");
 	}
 
+	/**
+	 * 转发到订单页
+	 * 
+	 * @return 自定义返回类型
+	 */
 	@RequestMapping("toorderForm.do")
 	public String orderForm() {
 		return "orderfrom";
 	}
 
+	/**
+	 * 得到当前用户所有订单
+	 * 
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("getForm.do")
 	@ResponseBody
 	public List<OrderFormGoods> getorderForm(HttpSession session) {
@@ -116,11 +148,22 @@ public class BuyController {
 		return list;
 	}
 
+	/**
+	 * 转发到购物车页面
+	 * 
+	 * @return
+	 */
 	@RequestMapping("togwc.do")
 	public String orderGwc() {
 		return "gwc";
 	}
 
+	/**
+	 * 得到当前用户所有的购物车信息
+	 * 
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("getgwc.do")
 	@ResponseBody
 	public List<GwcGoods> getgwc(HttpSession session) {
@@ -132,6 +175,12 @@ public class BuyController {
 		return list;
 	}
 
+	/**
+	 * 删除购物车商品
+	 * 
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("delgwc.do")
 	@ResponseBody
 	public ReturnType delGwc(HttpServletRequest request) {

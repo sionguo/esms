@@ -11,6 +11,12 @@ import cn.guoxy.esms.fs.entity.ReturnType;
 import cn.guoxy.esms.fs.service.EmailService;
 import cn.guoxy.esms.fs.service.RegistService;
 
+/***
+ * 找回密码相关处理
+ * 
+ * @author gxy
+ *
+ */
 @Controller
 public class FindPwdController {
 	@Resource(name = "registService")
@@ -18,11 +24,22 @@ public class FindPwdController {
 	@Resource(name = "emailService")
 	public EmailService emailService;
 
+	/**
+	 * 返回找回密码页面
+	 * 
+	 * @return
+	 */
 	@RequestMapping("toFind.do")
 	public String find() {
 		return "find";
 	}
 
+	/**
+	 * 通过邮箱发送验证码
+	 * 
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("getyzm.do")
 	@ResponseBody
 	public ReturnType getyzm(HttpServletRequest request) {
@@ -36,6 +53,12 @@ public class FindPwdController {
 
 	}
 
+	/**
+	 * 更新密码
+	 * 
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("updatePwd.do")
 	@ResponseBody
 	public ReturnType updatePwd(HttpServletRequest request) {
@@ -50,7 +73,7 @@ public class FindPwdController {
 			registService.updatePwd(pwd, email);
 			return new ReturnType(0);
 		}
-		return new ReturnType(1 , "验证码错误");
+		return new ReturnType(1, "验证码错误");
 
 	}
 }

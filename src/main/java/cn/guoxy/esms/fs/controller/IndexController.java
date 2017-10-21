@@ -12,16 +12,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cn.guoxy.esms.commons.entity.Goods;
 import cn.guoxy.esms.commons.service.GoodsService;
 
+/**
+ * 主页请求相关处理
+ * 
+ * @author gxy
+ *
+ */
 @Controller
 public class IndexController {
 	@Resource(name = "goodsService")
 	private GoodsService goodsService;
 
+	/**
+	 * 转发到首页
+	 * 
+	 * @return
+	 */
 	@RequestMapping("/toindex.do")
 	public String toIndex() {
 		return "index";
 	}
 
+	/**
+	 * 得到最新商品
+	 * 
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/getNewGoods.do")
 	@ResponseBody
 	public List<Goods> getNewGoods(HttpServletRequest request) {
@@ -30,6 +47,12 @@ public class IndexController {
 		return list;
 	}
 
+	/**
+	 * 得到最热商品
+	 * 
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/getHotGoods.do")
 	@ResponseBody
 	public List<Goods> getHotGoods(HttpServletRequest request) {
