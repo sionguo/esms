@@ -8,6 +8,12 @@ import cn.guoxy.esms.commons.util.PasswordUtil;
 import cn.guoxy.esms.fs.dao.UserDAO;
 import cn.guoxy.esms.fs.entity.User;
 
+/**
+ * 注册业务层实现类
+ * 
+ * @author gxy
+ *
+ */
 @Service("registService")
 public class RegistServiceImpl implements RegistService {
 	@Resource(name = "userDAO")

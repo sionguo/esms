@@ -7,6 +7,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import cn.guoxy.esms.commons.util.ImageUtil;
+
+/**
+ * 验证码业务层实现类
+ * 
+ * @author gxy
+ *
+ */
 @Service("codeService")
 public class CodeServiceImpl implements CodeService {
 

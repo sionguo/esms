@@ -17,6 +17,12 @@ import cn.guoxy.esms.commons.entity.OrderFormGoods;
 import cn.guoxy.esms.fs.entity.Gwc;
 import cn.guoxy.esms.fs.entity.OrderForm;
 
+/**
+ * 购买相关持久层实现类
+ * 
+ * @author gxy
+ *
+ */
 @Repository("buyGoodsDao")
 public class BuyGoodsDaoImpl implements BuyGoodsDao {
 	@Resource(name = "ds")
@@ -125,9 +131,7 @@ public class BuyGoodsDaoImpl implements BuyGoodsDao {
 		List<GwcGoods> list = new ArrayList<GwcGoods>();
 		try {
 			conn = ds.getConnection();
-			String sql = "SELECT * FROM goods "
-					+ "INNER JOIN gwc "
-					+ "ON goods.goodsId = gwc.goodsId "
+			String sql = "SELECT * FROM goods " + "INNER JOIN gwc " + "ON goods.goodsId = gwc.goodsId "
 					+ "WHERE gwc.userId = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, userId);

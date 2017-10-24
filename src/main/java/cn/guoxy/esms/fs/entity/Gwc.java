@@ -1,9 +1,27 @@
 package cn.guoxy.esms.fs.entity;
 
+/**
+ * 购物车实体类
+ * 
+ * @author gxy
+ *
+ */
 public class Gwc {
+	/**
+	 * 购物车ID
+	 */
 	private int gwcId;
+	/**
+	 * 商品ID
+	 */
 	private int goodsId;
+	/**
+	 * 用户ID
+	 */
 	private int userId;
+	/**
+	 * 商品数量
+	 */
 	private int count;
 
 	public int getGwcId() {

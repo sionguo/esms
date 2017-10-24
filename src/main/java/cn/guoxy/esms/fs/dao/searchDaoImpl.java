@@ -14,6 +14,12 @@ import org.springframework.stereotype.Repository;
 
 import cn.guoxy.esms.commons.entity.Goods;
 
+/**
+ * 查找商品持久层实现类
+ * 
+ * @author gxy
+ *
+ */
 @Repository("searchDao")
 public class searchDaoImpl implements SearchDao {
 	@Resource(name = "ds")
@@ -25,14 +31,8 @@ public class searchDaoImpl implements SearchDao {
 		List<Goods> list = new ArrayList<Goods>();
 		try {
 			conn = ds.getConnection();
-			String sql = "SELECT * "
-					+ "FROM goods "
-					+ "WHERE goods.goodsName LIKE ? OR "
-					+ "goods.goodsShow = ? OR "
-					+ "goods.stId IN ( "
-					+ "SELECT smalltype.stId "
-					+ "FROM smalltype "
-					+ "WHERE stName LIKE ? )";
+			String sql = "SELECT * " + "FROM goods " + "WHERE goods.goodsName LIKE ? OR " + "goods.goodsShow = ? OR "
+					+ "goods.stId IN ( " + "SELECT smalltype.stId " + "FROM smalltype " + "WHERE stName LIKE ? )";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, patten);
 			ps.setString(2, patten);

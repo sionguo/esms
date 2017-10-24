@@ -9,6 +9,12 @@ import cn.guoxy.esms.fs.dao.UserDAO;
 import cn.guoxy.esms.fs.entity.User;
 import cn.guoxy.esms.fs.exception.AppException;
 
+/**
+ * 登录业务层实现类
+ * 
+ * @author gxy
+ *
+ */
 @Service("loginService")
 public class LoginServiceImpl implements LoginService {
 	@Resource(name = "userDAO")

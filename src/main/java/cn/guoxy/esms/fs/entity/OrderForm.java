@@ -2,13 +2,40 @@ package cn.guoxy.esms.fs.entity;
 
 import java.util.Date;
 
+/**
+ * 订单实体类
+ * 
+ * @author gxy
+ *
+ */
 public class OrderForm {
+	/**
+	 * 订单ID
+	 */
 	private int orderId;
+	/**
+	 * 订单号
+	 */
 	private String orderNumber;
+	/**
+	 * 用户ID
+	 */
 	private int userId;
+	/**
+	 * 商品ID
+	 */
 	private int goodsId;
+	/**
+	 * 订单状态
+	 */
 	private int status;
+	/**
+	 * 订单创建时间
+	 */
 	private Date CreateTime;
+	/**
+	 * 商品数量
+	 */
 	private int count;
 
 	public int getCount() {

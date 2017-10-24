@@ -9,8 +9,19 @@ import org.springframework.stereotype.Service;
 import cn.guoxy.esms.commons.util.CodeUtil;
 import cn.guoxy.esms.commons.util.SendEmail;
 
+/**
+ * 邮箱服务
+ * 
+ * @author gxy
+ *
+ */
 @Service("emailService")
 public class EmailService {
+	/**
+	 * 登录验证邮箱
+	 * 
+	 * @param request
+	 */
 	public void ckEmail(HttpServletRequest request) {
 		String email = request.getParameter("email");
 		String path = request.getContextPath();
@@ -27,10 +38,15 @@ public class EmailService {
 		}
 	}
 
+	/**
+	 * 发送验证码
+	 * 
+	 * @param request
+	 */
 	public void sendYzm(HttpServletRequest request) {
 		String code = CodeUtil.createCode();
 		request.getSession().setAttribute("yzm", code);
-		
+
 		String email = request.getParameter("email");
 		request.getSession().setAttribute("yzmemail", email);
 		String msg = "验证码是：=========》" + code;

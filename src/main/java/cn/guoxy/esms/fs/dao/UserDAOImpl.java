@@ -12,6 +12,12 @@ import org.springframework.stereotype.Repository;
 
 import cn.guoxy.esms.fs.entity.User;
 
+/**
+ * 用户相关持久层实现类
+ * 
+ * @author gxy
+ *
+ */
 @Repository("userDAO")
 public class UserDAOImpl implements UserDAO {
 	@Resource(name = "ds")
@@ -32,7 +38,7 @@ public class UserDAOImpl implements UserDAO {
 				String email = rs.getString("email");
 				String pwd = rs.getString("pwd");
 				int vip = rs.getInt("vip");
-				user = new User(id,email,userName,pwd,vip);
+				user = new User(id, email, userName, pwd, vip);
 				return user;
 			}
 		} catch (SQLException e) {

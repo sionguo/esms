@@ -8,6 +8,13 @@ import org.springframework.stereotype.Service;
 
 import cn.guoxy.esms.commons.entity.Goods;
 import cn.guoxy.esms.fs.dao.SearchDao;
+
+/**
+ * 搜索业务层实现类
+ * 
+ * @author gxy
+ *
+ */
 @Service("searchService")
 public class SearchServiceImpl implements SearchService {
 	@Resource(name = "searchDao")

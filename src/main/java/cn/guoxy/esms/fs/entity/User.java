@@ -12,10 +12,25 @@ public class User {
 		return "User [id=" + id + ", email=" + email + ", userName=" + userName + ", pwd=" + pwd + ", vip=" + vip + "]";
 	}
 
+	/**
+	 * 用户ID
+	 */
 	private int id;
+	/**
+	 * 邮箱
+	 */
 	private String email;
+	/**
+	 * 用户名
+	 */
 	private String userName;
+	/**
+	 * 密码
+	 */
 	private String pwd;
+	/**
+	 * 等级
+	 */
 	private int vip;
 
 	public User(String email, String userName, String pwd) {

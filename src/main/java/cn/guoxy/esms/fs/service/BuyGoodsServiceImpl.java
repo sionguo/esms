@@ -12,6 +12,12 @@ import cn.guoxy.esms.fs.dao.BuyGoodsDao;
 import cn.guoxy.esms.fs.entity.Gwc;
 import cn.guoxy.esms.fs.entity.OrderForm;
 
+/**
+ * 购买商品相关业务层实现类
+ * 
+ * @author gxy
+ *
+ */
 @Service("buyGoodsService")
 public class BuyGoodsServiceImpl implements BuyGoodsService {
 	@Resource(name = "buyGoodsDao")
@@ -26,9 +32,9 @@ public class BuyGoodsServiceImpl implements BuyGoodsService {
 
 	}
 
-	public void updateVip(int userId,int vip) {
+	public void updateVip(int userId, int vip) {
 		dao.updateVip(userId, vip);
-		
+
 	}
 
 	public List<OrderFormGoods> findByGoodsId_OrderForm(int userId) {
